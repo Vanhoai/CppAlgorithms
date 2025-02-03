@@ -11,7 +11,7 @@ void sieve(int n) {
         is_prime[i] = true;
 
     // can be use memset instead of loop
-    for (int i = 2; i + i <= n; i++) {
+    for (int i = 2; i * i <= n; i++) {
         if (is_prime[i]) {
             for (int k = i * i; k <= n; k += i)
                 is_prime[k] = false;
