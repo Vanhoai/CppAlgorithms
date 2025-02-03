@@ -9,6 +9,7 @@
 #define present(t, x) (t.find(x) != t.end())
 #define sz(a)         int((a).size())
 #define FOR(i, a, b)  for (int i = (a); i < (b); ++i)
+#define REP(i, a, b)  for (int i = (a); i <= (b); ++i)
 
 #define PB push_back
 #define PF push_front
