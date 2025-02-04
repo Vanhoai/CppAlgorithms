@@ -3,55 +3,35 @@
 using namespace std;
 
 /**
- * Count Factor
- *
- * input:
- *      T: number of testcases (1 <= T <= 100)
- *      N: number check (1 <= N <= 10^6)
- *
- * output: print the number of factor of N!
- *
- * @example
- *      input: 97
- *      output: 26494182162432000
+ * C(n, k) = C(n - 1, k -1) + C(n - 1, k)
+ * Base in pascal triangle
  */
 
-int is_prime(int n) {
-    for (int i = 2; i * i <= n; i++) {
-        if (n % i == 0)
-            return 0;
+ll C[1001][1001];
+
+void init() {
+    for (int i = 0; i <= 1000; i++) {
+        for (int j = 0; j <= i; j++) {
+            if (j == 0 || j == i) {
+                C[i][j] = 1;
+            } else {
+                C[i][j] = C[i - 1][j - 1] + C[i - 1][j];
+                C[i][j] %= 1000000007;
+            }
+        }
     }
-
-    return n > 1;
-}
-
-int degree(int n, int p) {
-    int ans = 0;
-    for (int i = p; i <= n; i *= p) {
-        ans += n / i;
-    }
-
-    return ans;
 }
 
 int main() {
     SETUP;
+    init();
 
     int TC;
     cin >> TC;
     while (TC--) {
-        int n;
-        cin >> n;
-
-        int ans = 1;
-        for (int i = 1; i <= n; i++) {
-            if (is_prime(i)) {
-                int d = degree(n, i);
-                ans *= (d + 1);
-            }
-        }
-
-        cout << ans << endl;
+        int n, k;
+        cin >> n >> k;
+        cout << C[n][k] << endl;
     }
 
     return 0;
