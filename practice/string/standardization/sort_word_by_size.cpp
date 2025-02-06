@@ -3,28 +3,20 @@
 using namespace std;
 
 /**
- * Standardization Name 1
+ * Sort Word by size
  *
  * input:
  *      T: number of test cases (1 <= T <= 100)
  *      S: string (size <= 1000)
  *
- * output: print string after standardization
+ * output: print sorted word in string
  *
  * @example
- *      input: NguYEN VAN maNH
- *      output: Nguyen Van Manh
+ *      input: aa abc aaa a bc z
+ *      output: a z aa bc abc aaa
  */
 
-string format(string s) {
-    char f = toupper(s[0]);
-    s[0] = f;
-
-    for (int i = 1; i < s.size(); i++)
-        s[i] = tolower(s[i]);
-
-    return s;
-}
+bool cmp(string a, string b) { return a.size() < b.size(); }
 
 int main() {
     SETUP;
@@ -36,12 +28,17 @@ int main() {
         string s;
         getline(cin, s);
 
+        vector<string> v;
         stringstream ss(s);
         string word;
 
-        while (ss >> word) {
-            cout << format(word) << " ";
-        }
+        while (ss >> word)
+            v.push_back(word);
+
+        sort(v.begin(), v.end(), cmp);
+
+        for (string w : v)
+            cout << w << " ";
 
         cout << endl;
     }

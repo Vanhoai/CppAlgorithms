@@ -3,7 +3,7 @@
 using namespace std;
 
 /**
- * Standardization Name 1
+ * Standardization Name
  *
  * input:
  *      T: number of test cases (1 <= T <= 100)

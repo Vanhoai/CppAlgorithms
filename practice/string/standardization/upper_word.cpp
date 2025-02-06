@@ -3,27 +3,26 @@
 using namespace std;
 
 /**
- * Standardization Name 1
+ * Upper Word
  *
  * input:
  *      T: number of test cases (1 <= T <= 100)
  *      S: string (size <= 1000)
  *
- * output: print string after standardization
+ * output: print all word uppercase in string
  *
  * @example
- *      input: NguYEN VAN maNH
- *      output: Nguyen Van Manh
+ *      input: Python Java C++ PHP JS
+ *      output: PHP JS
  */
 
-string format(string s) {
-    char f = toupper(s[0]);
-    s[0] = f;
+bool check(string s) {
+    for (int i = 0; i < s.size(); i++) {
+        if (!isupper(s[i]))
+            return false;
+    }
 
-    for (int i = 1; i < s.size(); i++)
-        s[i] = tolower(s[i]);
-
-    return s;
+    return true;
 }
 
 int main() {
@@ -40,7 +39,8 @@ int main() {
         string word;
 
         while (ss >> word) {
-            cout << format(word) << " ";
+            if (check(word))
+                cout << word << " ";
         }
 
         cout << endl;

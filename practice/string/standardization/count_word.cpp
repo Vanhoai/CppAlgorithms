@@ -3,28 +3,18 @@
 using namespace std;
 
 /**
- * Standardization Name 1
+ * Count Word
  *
  * input:
  *      T: number of test cases (1 <= T <= 100)
  *      S: string (size <= 1000)
  *
- * output: print string after standardization
+ * output: the number of words in string
  *
  * @example
- *      input: NguYEN VAN maNH
- *      output: Nguyen Van Manh
+ *      input: Python     Java  C++ PHP JS
+ *      output: 5
  */
-
-string format(string s) {
-    char f = toupper(s[0]);
-    s[0] = f;
-
-    for (int i = 1; i < s.size(); i++)
-        s[i] = tolower(s[i]);
-
-    return s;
-}
 
 int main() {
     SETUP;
@@ -39,11 +29,12 @@ int main() {
         stringstream ss(s);
         string word;
 
-        while (ss >> word) {
-            cout << format(word) << " ";
-        }
+        int count = 0;
 
-        cout << endl;
+        while (ss >> word)
+            count++;
+
+        cout << count << endl;
     }
 
     return 0;
