@@ -2,41 +2,26 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-int n, k, ok, X[100];
+/**
+input
+2
+4
+5
 
-void init() {
-    for (int i = 1; i <= k; i++)
-        X[i] = i;
-}
+output:
+(4) (3 1) (2 2) (2 1 1) (1 1 1 1)
+(5) (4 1) (3 2) (3 1 1) (2 2 1) (2 1 1 1) (1 1 1 1 1)
 
-void gen() {
-    int i = k;
-    while (i >= 1 && X[i] == n - k + i)
-        i--;
-
-    if (i == 0)
-        ok = 0;
-    else {
-        X[i]++;
-        for (int j = i + 1; j <= k; j++)
-            X[j] = X[j - 1] + 1;
-    }
-}
+ */
 
 int main() {
     SETUP;
 
-    cin >> n >> k;
-    init();
-
-    ok = 1;
-    while (ok) {
-        for (int i = 1; i <= k; i++) {
-            cout << X[i] << " ";
-        }
+    int TC;
+    cin >> TC;
+    while (TC--) {
 
         cout << endl;
-        gen();
     }
 
     return 0;
