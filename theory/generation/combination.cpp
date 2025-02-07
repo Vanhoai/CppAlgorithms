@@ -9,7 +9,7 @@ void init() {
         X[i] = i;
 }
 
-void gen() {
+void generate() {
     int i = k;
     while (i >= 1 && X[i] == n - k + i)
         i--;
@@ -36,7 +36,8 @@ int main() {
         }
 
         cout << endl;
-        gen();
+
+        generate();
     }
 
     return 0;
