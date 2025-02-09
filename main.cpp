@@ -2,45 +2,35 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-/**
-input
-2
-2
-4
-
-1≤T≤10; 1≤N≤30
-
-output:
-00 11
-00 11 0000 0110 1001 1111
-*/
-
-int n, ok, X[100];
-string s;
-vector<string> res;
-
-void gen() {
-    int i = s.size() - 1;
-    while (i >= 0 && s[i] == '1') {
-        s[i] = '0';
-        i--;
-    }
-
-    if (i == -1)
-        ok = 0;
-    else
-        s[i] = '1';
-}
+int n, cnt, ok, a[100];
 
 void init() {
-    for (int i = 1; i <= 15; i++) {
-        s = string(i, '0');
-        ok = 1;
-        while (ok) {
-            string tmp = s;
-            reverse(tmp.begin(), tmp.end());
-            res.push_back(s + tmp);
-            gen();
+    cnt = 1;
+    a[1] = n;
+}
+
+void gen() {
+    int i = cnt;
+    while (i >= 1 && a[i] == 1)
+        --i;
+
+    if (i == 0)
+        ok = 0;
+    else {
+        a[i]--;
+        int miss = cnt - i + 1;
+        int x = miss / a[i];
+        int m = miss % a[i];
+
+        cnt = i;
+        for (int j = 0; j < x; j++) {
+            a[cnt + 1] = a[i];
+            cnt++;
+        }
+
+        if (m > 0) {
+            a[cnt + 1] = m;
+            cnt++;
         }
     }
 }
@@ -48,19 +38,16 @@ void init() {
 int main() {
     SETUP;
 
+    cin >> n;
     init();
 
-    int TC;
-    cin >> TC;
-    while (TC--) {
-        cin >> n;
-
-        int i = 0;
-        while (res[i].size() <= n) {
-            cout << res[i++] << " ";
-        }
+    ok = 1;
+    while (ok) {
+        for (int i = 1; i <= cnt; i++)
+            cout << a[i] << " ";
 
         cout << endl;
+        gen();
     }
 
     return 0;
