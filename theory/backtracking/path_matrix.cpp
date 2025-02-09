@@ -7,7 +7,7 @@ string path;
 
 void backtracking(int i, int j) {
     if (i == n && j == n)
-        cout << path << " ";
+        cout << path << endl;
 
     if (i + 1 <= n && A[i + 1][j] == 1) {
         // move down
