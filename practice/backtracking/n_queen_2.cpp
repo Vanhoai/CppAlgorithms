@@ -3,7 +3,7 @@
 using namespace std;
 
 /**
- * N Queen
+ * N Queen 2
  *
  * input:
  *      T: number testcase T < 5
