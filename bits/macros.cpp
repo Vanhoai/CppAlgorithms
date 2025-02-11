@@ -36,3 +36,10 @@ inline ll GCD(ll a, ll b) {
     return a;
 }
 inline ll LCM(ll a, ll b) { return a / GCD(a, b) * b; }
+inline bool PRIME(int n) {
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0)
+            return false;
+    }
+    return n > 1;
+}

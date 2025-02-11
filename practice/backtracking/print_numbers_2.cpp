@@ -35,7 +35,7 @@ void backtracking(int i) {
 
     print(i);
 
-    for (int k = 1; k < i; k++)
+    for (int k = 1; k <= i; k++)
         X[k] += X[k + 1];
 
     backtracking(i - 1);
