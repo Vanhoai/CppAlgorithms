@@ -3,7 +3,7 @@
 using namespace std;
 
 /**
- * Swap Position
+ * Milking Cow
  *
  * input:
  *      T, N, M, A(i)
@@ -14,12 +14,14 @@ using namespace std;
  *
  * @example
  *      input:
- *          1
- *          5
- *          5 4 3 2 1
+ *          2
+ *          4
+ *          4 4 4 4
+ *          4
+ *          2 1 4 3
  *      output:
- *          1 5
- *          2 4
+ *          10
+ *          6
  */
 
 int main() {
