@@ -4,7 +4,7 @@
 #define IO    freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout)
 #define SETUP IOS, IO
 
-#define ms(s, n)      memset(s, n, sizeof(s))
+#define ms(s, v)      memset(s, v, sizeof(s))
 #define all(a)        a.begin(), a.end()
 #define present(t, x) (t.find(x) != t.end())
 #define sz(a)         int((a).size())
@@ -23,6 +23,7 @@ typedef long double ld;
 typedef std::pair<int, int> pi;
 typedef std::vector<int> vi;
 typedef std::vector<pi> vii;
+typedef std::map<int, int> mii;
 
 const int MOD = (int) 1e9 + 7;
 const int INF = (int) 1e9 + 1;
