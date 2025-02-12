@@ -3,64 +3,113 @@
 using namespace std;
 
 /**
- * Traveler
+ * Expression
  *
  * input:
- *      N, A(i)(j)
- *      1 <= N <= 15
- *      1 <= C(i) <= 100
+ *      A, B, C, D, E <= 100
+ *      [[[A o(1) B] o(2) C] o(3) D] o(4) E = 23
  *
- * output: print the cost that person has to pay
+ * output: YES/NO
  *
  * @example
  *      input:
- *          4
- *          0 20 35 10
- *          20 0 90 50
- *          35 90 0 12
- *          10 50 12 0
+ *          3
+ *          1 1 1 1 1
+ *          1 2 3 4 5
+ *          2 3 5 7 11
  *      output:
- *          117
+ *          NO
+ *          YES
+ *          YES
  */
 
-const int maxn = 15;
-int n, A[maxn + 1][maxn + 1], X[100], cmin = 1e9 + 5, res = 0, ans = 1e9;
-bool visited[maxn + 1];
+int n, m, k;
+char A[1001][1001];
+bool visited[1001][1001];
+set<string> res;
+set<string> dict;
+string word;
 
-void in() {
-    cin >> n;
-    REP(i, 1, n) REP(j, 1, n) {
-        cin >> A[i][j];
-        cmin = min(cmin, A[i][j]);
+int dx[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
+int dy[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+void input() {
+    cin >> k >> n >> m;
+
+    for (int i = 0; i < k; i++) {
+        string w;
+        cin >> w;
+        dict.insert(w);
+    }
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            char x;
+            cin >> x;
+            A[i][j] = x;
+        }
+    }
+
+    memset(visited, true, sizeof(visited));
+}
+
+void backtracking(int i, int j) {
+    if (dict.find(word) != dict.end())
+        res.insert(word);
+
+    for (int b = 0; b < 8; b++) {
+        int ix = i + dx[b];
+        int jy = j + dy[b];
+
+        if (ix >= 1 && ix <= n && jy >= 1 && jy <= m && visited[ix][jy]) {
+            visited[ix][jy] = false;
+            word += A[ix][jy];
+            backtracking(ix, jy);
+            word.pop_back();
+            visited[ix][jy] = true;
+        }
     }
 }
 
-void backtracking(int i) {
-    for (int j = 2; j <= n; j++) {
-        if (!visited[j]) {
-            visited[j] = true;
-            X[i] = j;
-            res += A[X[i]][X[i - 1]];
-            if (i == n)
-                ans = min(ans, res + A[X[n]][1]);
-            else if (res + cmin * (n - i + 1) < ans) {
-                backtracking(i + 1);
-            }
+void bfs(int i, int j) {
+    word += A[i][j];
+    if (dict.find(word) != dict.end())
+        cout << word << endl;
 
-            visited[j] = false;
-            res -= A[X[i]][X[i - 1]];
+    for (int b = 0; b < 8; b++) {
+        int ix = i + dx[b];
+        int jy = j + dy[b];
+
+        if (ix >= 1 && ix <= n && jy >= 1 && jy <= m && visited[ix][jy]) {
+            visited[ix][jy] = false;
+            bfs(ix, jy);
+            visited[ix][jy] = true;
         }
     }
+
+    word.pop_back();
 }
 
 int main() {
     SETUP;
 
-    in();
-    memset(visited, false, sizeof(visited));
-    X[1] = 1;
-    backtracking(2);
+    int TC;
+    cin >> TC;
+    while (TC--) {
+        input();
 
-    cout << ans << endl;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                word = "";
+                backtracking(i, j);
+            }
+        }
+
+        for (auto it : res)
+            cout << it << " ";
+
+        cout << endl;
+    }
+
     return 0;
 }

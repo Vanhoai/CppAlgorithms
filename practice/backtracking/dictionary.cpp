@@ -2,6 +2,29 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+/**
+ * Dictionary
+ *
+ * input:
+ *      T, K, M, N
+ *      1 ≤ T ≤ 10
+ *      1 ≤ K ≤ 100
+ *      1 ≤ M, N ≤ 3
+ *
+ * output: print all words can be build
+ *
+ * @example
+ *      input:
+ *          1
+ *          4 3 3
+ *          GEEKS FOR QUIZ GO
+ *          G I Z
+ *          U E K
+ *          Q S E
+ *      output:
+ *          GEEKS QUIZ
+ */
+
 int n, m, k;
 char A[1001][1001];
 bool visited[1001][1001];
