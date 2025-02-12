@@ -20,11 +20,14 @@ int main() {
         for (auto it : mp)
             q.push(it.second);
 
-        for (int i = 0; i < k; i++) {
+        int i = 0;
+        while (!q.empty() && i++ < k) {
             int top = q.top();
             q.pop();
             top--;
-            q.push(top);
+
+            if (top > 0)
+                q.push(top);
         }
 
         int res = 0;

@@ -13,10 +13,8 @@ int main() {
     mii mp;
 
     for (int i = 5; i >= 0; i--) {
-        while (s > 0 && s / a[i] > 0) {
-            mp[a[i]] = s / a[i];
-            s %= a[i];
-        }
+        mp[a[i]] = s / a[i];
+        s %= a[i];
     }
 
     for (auto it : mp)
