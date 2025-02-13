@@ -4,12 +4,13 @@
 #define IO    freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout)
 #define SETUP IOS, IO
 
-#define ms(s, v)      memset(s, v, sizeof(s))
-#define all(a)        a.begin(), a.end()
-#define present(t, x) (t.find(x) != t.end())
-#define sz(a)         int((a).size())
-#define FOR(i, a, b)  for (int i = (a); i < (b); ++i)
-#define REP(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define ms(s, v)         memset(s, v, sizeof(s))
+#define all(a)           a.begin(), a.end()
+#define present(t, x)    (t.find(x) != t.end())
+#define sz(a)            int((a).size())
+#define FOR(i, a, b)     for (int i = (a); i < (b); ++i)
+#define INVERSE(i, a, b) for (int i = (a); i >= b; --i)
+#define REP(i, a, b)     for (int i = (a); i <= (b); ++i)
 
 #define PB push_back
 #define PF push_front
@@ -27,6 +28,7 @@ typedef std::map<int, int> mii;
 
 const int MOD = (int) 1e9 + 7;
 const int INF = (int) 1e9 + 1;
+
 inline ll GCD(ll a, ll b) {
     ll r;
     while (b) {
