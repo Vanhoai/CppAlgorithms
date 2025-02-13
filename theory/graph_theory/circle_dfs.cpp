@@ -3,8 +3,8 @@
 using namespace std;
 
 int n, m;
-vector<int> adj[DEGREE];
-bool visited[DEGREE];
+vector<int> adj[DEG];
+bool visited[DEG];
 
 bool dfs(int u, int p) {
     visited[u] = true;

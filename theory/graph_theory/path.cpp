@@ -2,9 +2,9 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-int n, m, s, e, parent[DEGREE];
-vector<int> adj[DEGREE];
-bool visited[DEGREE];
+int n, m, s, e, parent[DEG];
+vector<int> adj[DEG];
+bool visited[DEG];
 
 void dfs(int u) {
     visited[u] = true;

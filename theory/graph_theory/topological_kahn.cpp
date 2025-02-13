@@ -2,7 +2,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-int n, m, in_degree[DEGREE];
+int n, m, in_degree[DEG];
 vector<int> adj[1001];
 
 void kahn() {

@@ -2,9 +2,9 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-int n, m, parent[DEGREE];
-vector<int> adj[DEGREE];
-bool visited[DEGREE];
+int n, m, parent[DEG];
+vector<int> adj[DEG];
+bool visited[DEG];
 
 bool bfs(int s) {
     queue<int> q;

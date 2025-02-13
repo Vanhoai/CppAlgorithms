@@ -28,7 +28,7 @@ typedef std::map<int, int> mii;
 
 const int MOD = (int) 1e9 + 7;
 const int INF = (int) 1e9 + 1;
-const int DEGREE = (int) 1001;
+const int DEG = (int) 1001;
 
 inline ll GCD(ll a, ll b) {
     ll r;
