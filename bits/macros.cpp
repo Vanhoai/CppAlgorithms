@@ -1,6 +1,6 @@
 #include "./stdc++.h"
 
-#define IOS   ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)
+#define IOS   ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
 #define IO    freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout)
 #define SETUP IOS, IO
 
@@ -28,6 +28,7 @@ typedef std::map<int, int> mii;
 
 const int MOD = (int) 1e9 + 7;
 const int INF = (int) 1e9 + 1;
+const int DEGREE = (int) 1001;
 
 inline ll GCD(ll a, ll b) {
     ll r;
