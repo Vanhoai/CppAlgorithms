@@ -31,13 +31,14 @@ void input() {
 }
 
 void bellman_ford(int s) {
-    ms(d, INF);
+    REP(i, 1, n) d[i] = INF;
     d[s] = 0;
 
-    for (int i = 0; i < n - 1; i++) {
-        for (int k = 0; k < m; k++) {
+    FOR(i, 0, n - 1) {
+        FOR(k, 0, m) {
             Edge tmp = edges[k];
             int u = tmp.u, v = tmp.v, w = tmp.w;
+
             if (d[u] < INF)
                 d[v] = min(d[v], d[u] + w);
         }
