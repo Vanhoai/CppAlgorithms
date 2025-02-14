@@ -23,6 +23,7 @@ typedef unsigned long long ull;
 typedef long double ld;
 typedef std::pair<int, int> pi;
 typedef std::vector<int> vi;
+typedef std::vector<std::vector<int>> vvi;
 typedef std::vector<pi> vii;
 typedef std::map<int, int> mii;
 
