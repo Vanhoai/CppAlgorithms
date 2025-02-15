@@ -2,6 +2,24 @@
 #include "bits/stdc++.h"
 using namespace std;
 
+/**
+ * 2
+ * 5
+ * 1 2
+ * 1 3
+ * 2 4
+ * 2 5
+ * 4
+ * 1 2
+ * 2 3
+ * 3 4
+ *
+ * 1 3
+ * 1 2 4
+ * 1 2 5
+ * 1 2 3 4
+ */
+
 int n, parent[1001];
 vector<int> adj[1001];
 vector<int> leafs;
