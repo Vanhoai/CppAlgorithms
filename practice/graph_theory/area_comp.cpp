@@ -3,7 +3,7 @@
 using namespace std;
 
 /**
- * Area
+ * Area of connected components
  *
  * input:
  *      N, M
