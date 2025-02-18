@@ -1,8 +1,8 @@
-#include "bits/macros.cpp"
+#include "bits/macros.h"
 #include "bits/stdc++.h"
 using namespace std;
 
-#include "bits/macros.cpp"
+#include "bits/macros.h"
 #include "bits/stdc++.h"
 using namespace std;
 

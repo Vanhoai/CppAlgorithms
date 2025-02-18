@@ -10,3 +10,4 @@ SpacesBeforeTrailingComments: 3
 AlwaysBreakAfterReturnType: None # Keep return type on the same line as function name
 AlignConsecutiveMacros: Consecutive
 UseCRLF: false
+Standard: c++11

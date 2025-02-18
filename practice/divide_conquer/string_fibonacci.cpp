@@ -1,4 +1,4 @@
-#include "bits/macros.cpp"
+#include "bits/macros.h"
 #include "bits/stdc++.h"
 using namespace std;
 
@@ -13,7 +13,7 @@ using namespace std;
  *      1<=K<=7e18
  *
  * output: print result of N ^ K mod 10^9 + 7
- * 
+ *
  * @example
  *      input:
  *          5 3
@@ -31,12 +31,14 @@ void init() {
 }
 
 char fibo(int n, ll k) {
-    if (n == 1) return 'A';
-    if (n == 2) return 'B';
+    if (n == 1)
+        return 'A';
+    if (n == 2)
+        return 'B';
 
     if (k <= f[n - 2])
         return fibo(n - 2, k);
-    else 
+    else
         return fibo(n - 1, k - f[n - 2]);
 }
 
@@ -44,7 +46,8 @@ int main() {
     SETUP;
 
     init();
-    int TC; cin >> TC;
+    int TC;
+    cin >> TC;
     while (TC--) {
         int n;
         ll k;
@@ -54,20 +57,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

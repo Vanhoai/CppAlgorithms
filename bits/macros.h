@@ -1,4 +1,5 @@
 #include "./stdc++.h"
+using namespace std;
 
 #define IOS   ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
 #define IO    freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout)
@@ -23,7 +24,7 @@ typedef unsigned long long ull;
 typedef long double ld;
 typedef std::pair<int, int> pi;
 typedef std::vector<int> vi;
-typedef std::vector<std::vector<int>> vvi;
+typedef std::vector<vi> vvi;
 typedef std::vector<pi> vii;
 typedef std::map<int, int> mii;
 

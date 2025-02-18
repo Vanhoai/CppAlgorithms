@@ -1,4 +1,4 @@
-#include "bits/macros.cpp"
+#include "bits/macros.h"
 #include "bits/stdc++.h"
 using namespace std;
 
@@ -17,7 +17,7 @@ using namespace std;
  *      b even -> a^b/2 * a^b/2
  *      b old -> a^b/2 * a^b/2 * a
  * }
- * 
+ *
  * @example
  *      input:
  *          2
@@ -29,48 +29,26 @@ using namespace std;
  */
 
 ll binpow(ll a, ll b) {
-    if (b == 0) return 1;
+    if (b == 0)
+        return 1;
 
     ll n = binpow(a, b / 2);
     if (b % 2 == 0)
         return (n % MOD) * (n % MOD) % MOD;
-    else 
-        return ((n % MOD) * (n % MOD)% MOD) * (a % MOD) % MOD;
+    else
+        return ((n % MOD) * (n % MOD) % MOD) * (a % MOD) % MOD;
 }
 
 int main() {
     SETUP;
 
-    int TC; cin >> TC;
+    int TC;
+    cin >> TC;
     while (TC--) {
-        ll n, k; cin >> n >> k;
+        ll n, k;
+        cin >> n >> k;
         cout << binpow(n, k) << endl;
     }
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
