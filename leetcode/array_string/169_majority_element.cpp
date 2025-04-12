@@ -1,20 +1,6 @@
-#include "bits/stdc++.h"
+#include <iostream>
+#include <vector>
 using namespace std;
-
-/*
-Leetcode 169: https://leetcode.com/problems/majority-element/
-
-input
-    2
-    3
-    3 2 3
-    7
-    2 2 1 1 1 2 2
-
-output:
-    3
-    7
-*/
 
 int majorityElement(vector<int> &nums) {
     int count = 0;

@@ -1,22 +1,6 @@
-#include "bits/stdc++.h"
+#include <iostream>
+#include <vector>
 using namespace std;
-
-/*
-Leetcode 88: https://leetcode.com/problems/merge-sorted-array
-
-input
-    2
-    6 3
-    1 2 3 0 0 0
-    2 5 6
-    1 0
-    1
-
-output:
-    1 2 2 3 5 6
-    1
-
-*/
 
 void merge(vector<int> &a, int m, vector<int> &b, int n) {
     int r = a.size() - 1;
