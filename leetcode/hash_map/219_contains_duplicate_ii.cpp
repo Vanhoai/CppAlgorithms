@@ -14,8 +14,9 @@ bool containsNearbyDuplicate(vector<int> &nums, int k) {
                 return true;
             else
                 mp[nums[i]] = i;
-        } else
+        } else {
             mp[nums[i]] = i;
+        }
     }
 
     return false;
