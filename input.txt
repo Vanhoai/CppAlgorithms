@@ -1,7 +1,4 @@
 3
-abba
-dog dog dog dog
-abba
-dog cat cat dog
-abba
-dog cat cat fish
+4 3
+4 2
+5 3
