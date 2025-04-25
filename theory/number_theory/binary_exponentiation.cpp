@@ -1,5 +1,4 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 int binary_pow(int a, int b, int c) {
@@ -28,7 +27,12 @@ int bin_pow(int a, int b, int c) {
 }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int a, b, c;
     cin >> a >> b >> c;

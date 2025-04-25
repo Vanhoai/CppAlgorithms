@@ -1,5 +1,4 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 int degree(int n, int k) {
@@ -25,7 +24,12 @@ int legendre(int n, int k) {
 }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int n, k;
     cin >> n >> k;

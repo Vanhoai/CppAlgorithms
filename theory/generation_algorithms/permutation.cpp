@@ -1,5 +1,4 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 int n, ok, X[100];
@@ -44,7 +43,12 @@ void generate() {
 }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     cin >> n;
     init();

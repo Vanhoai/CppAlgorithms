@@ -1,5 +1,5 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
+#include <set>
 using namespace std;
 
 vector<int> rotate_left(vector<int> a) {
@@ -54,10 +54,17 @@ int bfs(vector<int> a, vector<int> b) {
             s.insert(right);
         }
     }
+
+    return -1;
 }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int t = 1;
     while (t--) {

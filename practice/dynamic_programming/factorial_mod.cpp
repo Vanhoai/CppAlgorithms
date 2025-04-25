@@ -1,35 +1,14 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
-/**
- * Factorial Mod
- *
- * input:
- *      T, N
- *      1 <= T <= 10000
- *      0 <= N <= 10^6
- *
- * output: print factorial of N mod 10^9 + 7
- *
- * @example
- *      input:
- *          5
- *          10
- *          6
- *          8
- *          10
- *          13
- *      output:
- *          39916800
- *          720
- *          40320
- *          3628800
- *          227020758
- */
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= b; --i)
 
 const int maxn = 10000001;
-ll dp[maxn];
+long long dp[maxn];
 
 void init() {
     dp[0] = 0;
@@ -41,7 +20,13 @@ void init() {
 }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+
     init();
 
     int TC;
@@ -51,5 +36,6 @@ int main() {
         cin >> n;
         cout << dp[n] << endl;
     }
+
     return 0;
 }

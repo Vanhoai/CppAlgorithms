@@ -1,6 +1,29 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
+
+#define ms(s, n)      memset(s, n, sizeof(s))
+#define all(a)        a.begin(), a.end()
+#define sz(a)         int((a).size())
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= b; --i)
+
+#define PB push_back
+#define MP make_pair
+#define F  first
+#define S  second
+
+typedef long long ll;
+typedef pair<int, int> pi;
+typedef vector<int> vi;
+typedef vector<pi> vii;
+typedef vector<vi> vvi;
+
+const int MOD = (int) 1e9 + 7;
+const int INF = (int) 1e9 + 1;
+const int DEG = (int) 10001;
+
+inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
+inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
 /**
  * Count Room
@@ -42,7 +65,7 @@ int dy[] = {1, 0, -1, 0};
 
 void input() {
     cin >> n >> m;
-    REP(i, 1, n) REP(k, 1, m) cin >> A[i][k];
+    FOR(i, 1, n) FOR(k, 1, m) cin >> A[i][k];
 }
 
 void dfs(int u, int v) {
@@ -55,14 +78,19 @@ void dfs(int u, int v) {
 }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int TC;
     cin >> TC;
     while (TC--) {
         input();
         int count = 0;
-        REP(i, 1, n) REP(j, 1, m) {
+        FOR(i, 1, n) FOR(j, 1, m) {
             if (A[i][j] == '.') {
                 count++;
                 dfs(i, j);

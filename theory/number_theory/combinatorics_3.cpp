@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 long long C[1001][1001];
@@ -20,15 +20,18 @@ void init() {
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
     init();
-    int T; cin >> T;
+    int T;
+    cin >> T;
     while (T--) {
-        int n, k; cin >> n >> k;
+        int n, k;
+        cin >> n >> k;
         cout << C[n][k] << endl;
     }
 

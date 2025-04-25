@@ -1,6 +1,29 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
+
+#define ms(s, n)      memset(s, n, sizeof(s))
+#define all(a)        a.begin(), a.end()
+#define sz(a)         int((a).size())
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= b; --i)
+
+#define PB push_back
+#define MP make_pair
+#define F  first
+#define S  second
+
+typedef long long ll;
+typedef pair<int, int> pi;
+typedef vector<int> vi;
+typedef vector<pi> vii;
+typedef vector<vi> vvi;
+
+const int MOD = (int) 1e9 + 7;
+const int INF = (int) 1e9 + 1;
+const int DEG = (int) 10001;
+
+inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
+inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
 /**
  * Prefix Prefix
@@ -40,10 +63,10 @@ int main() {
     int n, m, k;
     cin >> n >> m >> k;
     int a[n + 1];
-    REP(i, 1, n) cin >> a[i];
+    FOR(i, 1, n) cin >> a[i];
 
     vector<int> q[m + 1];
-    REP(i, 1, m) {
+    FOR(i, 1, m) {
         int x, y, w;
         cin >> x >> y >> w;
         q[i].push_back(x);
@@ -52,12 +75,13 @@ int main() {
     }
 
     int d[n + 1];
-    d[1] =  a[1];    
-    REP(i, 2, n) d[i] = a[i] - a[i - 1];
+    d[1] = a[1];
+    FOR(i, 2, n) d[i] = a[i] - a[i - 1];
 
-    while(k--) {
-        int r1, r2; cin >> r1 >> r2;
-        REP(i, r1, r2) {
+    while (k--) {
+        int r1, r2;
+        cin >> r1 >> r2;
+        FOR(i, r1, r2) {
             int x = q[i][0];
             int y = q[i][1];
             int w = q[i][2];
@@ -68,18 +92,9 @@ int main() {
     }
 
     a[1] = d[1];
-    REP(i, 2, n) a[i] = a[i - 1] + d[i];
-    REP(i, 1, n) cout << a[i] << " ";
+    FOR(i, 2, n) a[i] = a[i - 1] + d[i];
+    FOR(i, 1, n) cout << a[i] << " ";
     cout << endl;
-    
+
     return 0;
 }
-
-
-
-
-
-
-
-
-

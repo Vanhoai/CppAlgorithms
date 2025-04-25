@@ -25,15 +25,28 @@ const int DEG = (int) 10001;
 inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
 inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
-/**
- * Coin problem
- * 3 10
- * 4 5 8
- *
- * dp[i] = min(dp[i], d[i - a[j]] + 1) where i > a[j]
- */
+void dfs(int u, vvi &matrix) {
+    matrix[u][u] = 0;
+    for (int i = 0; i < matrix[u].size(); i++) {
+        if (matrix[u][i]) {
+            matrix[u][i] = 0;
+            matrix[i][u] = 0;
+            dfs(i, matrix);
+        }
+    }
+}
 
-int dp[1000001];
+int findCircleNum(vvi &isConnected) {
+    int count = 0;
+    for (int i = 0; i < isConnected.size(); i++) {
+        if (isConnected[i][i]) {
+            count++;
+            dfs(i, isConnected);
+        }
+    }
+
+    return count;
+}
 
 int main() {
     ios::sync_with_stdio(false);
@@ -46,24 +59,11 @@ int main() {
     int TC;
     cin >> TC;
     while (TC--) {
-        int n, s;
-        cin >> n >> s;
-        int a[n];
-        FOR(i, 0, n) cin >> a[i];
-
-        ms(dp, INF);
-        dp[0] = 0;
-        FOR(i, 1, s) {
-            for (int c : a) {
-                if (i >= c)
-                    dp[i] = min(dp[i], dp[i - c] + 1);
-            }
-        }
-
-        if (dp[s] == INF)
-            cout << -1 << endl;
-        else
-            cout << dp[s] << endl;
+        int n;
+        cin >> n;
+        vvi matrix(n, vi(n));
+        FOR(i, 0, n - 1) FOR(k, 0, n - 1) cin >> matrix[i][k];
+        cout << findCircleNum(matrix) << endl;
     }
 
     return 0;

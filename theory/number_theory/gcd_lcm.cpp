@@ -1,5 +1,4 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 int gcd(int a, int b) {
@@ -11,7 +10,12 @@ int gcd(int a, int b) {
 int lcm(int a, int b) { return a / gcd(a, b) * b; }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int n;
     cin >> n;

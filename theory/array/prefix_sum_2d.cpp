@@ -1,6 +1,29 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
+
+#define ms(s, n)      memset(s, n, sizeof(s))
+#define all(a)        a.begin(), a.end()
+#define sz(a)         int((a).size())
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= b; --i)
+
+#define PB push_back
+#define MP make_pair
+#define F  first
+#define S  second
+
+typedef long long ll;
+typedef pair<int, int> pi;
+typedef vector<int> vi;
+typedef vector<pi> vii;
+typedef vector<vi> vvi;
+
+const int MOD = (int) 1e9 + 7;
+const int INF = (int) 1e9 + 1;
+const int DEG = (int) 10001;
+
+inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
+inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
 /**
  * Prefix Sum 2D
@@ -26,7 +49,12 @@ using namespace std;
  */
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int TC;
     cin >> TC;
@@ -34,11 +62,11 @@ int main() {
         int n, m;
         cin >> n >> m;
         int a[n + 1][m + 1];
-        REP(i, 1, n) REP(k, 1, m) cin >> a[i][k];
+        FOR(i, 1, n) FOR(k, 1, m) cin >> a[i][k];
 
         int pre[n + 1][m + 1];
         ms(pre, 0);
-        REP(i, 1, n) REP(k, 1, m) {
+        FOR(i, 1, n) FOR(k, 1, m) {
             pre[i][k] =
                 pre[i][k - 1] + pre[i - 1][k] - pre[i - 1][k - 1] + a[i][k];
         }

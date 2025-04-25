@@ -1,5 +1,4 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 int u(int n, int d, int u1) { return u1 + (n - 1) * d; }
@@ -9,7 +8,12 @@ int su(int n, int u1, int un) { return n * (u1 + un) / 2; }
 int ss(int n, int u1, int q) { return (u1 * (pow(q, n) - 1)) / (q - 1); }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int n, d, u1, un, q, s1, sn;
     cin >> n >> d >> u1 >> un >> q >> s1 >> sn;

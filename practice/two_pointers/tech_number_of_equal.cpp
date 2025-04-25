@@ -1,6 +1,8 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
+
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= b; --i)
 
 /**
  * Tech number of equal
@@ -29,11 +31,12 @@ int main() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    int n, m; cin >> n >> m;
+    int n, m;
+    cin >> n >> m;
     int a[n], b[m];
 
-    FOR(i, 0, n) cin >> a[i];
-    FOR(i, 0, m) cin >> b[i];
+    FOR(i, 0, n - 1) cin >> a[i];
+    FOR(i, 0, m - 1) cin >> b[i];
 
     int i = 0, j = 0;
     int res = 0;
@@ -66,12 +69,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-

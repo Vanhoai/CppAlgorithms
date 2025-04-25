@@ -1,5 +1,4 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 /**
@@ -66,8 +65,8 @@ int strcmp_own(string s1, string s2) {
     return 0;
 }
 
-ll atoll_own(string s) {
-    ll res = 0;
+long long atoll_own(string s) {
+    long long res = 0;
     int size = s.size();
     for (int i = 0; i < size; i++) {
         int digit = s[i] - '0';
@@ -78,7 +77,12 @@ ll atoll_own(string s) {
 }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     return 0;
 }

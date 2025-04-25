@@ -1,5 +1,5 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
+#include <sstream>
 using namespace std;
 
 /**
@@ -19,7 +19,12 @@ using namespace std;
 bool cmp(string a, string b) { return a.size() < b.size(); }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int TC;
     cin >> TC;

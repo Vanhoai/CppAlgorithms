@@ -1,4 +1,4 @@
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
 
 /**
@@ -26,14 +26,17 @@ using namespace std;
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(nullptr); cout.tie(nullptr);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    int n, q; cin >> n >> q;
+    int n, q;
+    cin >> n >> q;
     int a[n];
-    for (int i = 0; i < n; i++) cin >> a[i];
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
 
     int f[n];
     f[0] = a[0];
@@ -41,25 +44,13 @@ int main() {
         f[i] = f[i - 1] + a[i];
 
     while (q--) {
-        int L, R; cin >> L >> R;
-        if (L == 0) cout << f[R] << endl;
-        else cout << f[R] - f[L - 1] << endl;
+        int L, R;
+        cin >> L >> R;
+        if (L == 0)
+            cout << f[R] << endl;
+        else
+            cout << f[R] - f[L - 1] << endl;
     }
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

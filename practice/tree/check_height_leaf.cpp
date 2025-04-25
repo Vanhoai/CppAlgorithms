@@ -1,6 +1,8 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
 using namespace std;
+
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= b; --i)
 
 /**
  * 2
@@ -56,7 +58,12 @@ bool check(Node *root, int level, int h) {
 }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int TC;
     cin >> TC;
@@ -65,7 +72,7 @@ int main() {
         cin >> n;
         Node *root = nullptr;
 
-        FOR(i, 0, n) {
+        FOR(i, 0, n - 1) {
             int u, v;
             char c;
             cin >> u >> v >> c;

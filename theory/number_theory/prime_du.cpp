@@ -1,5 +1,5 @@
-#include "bits/macros.h"
-#include "bits/stdc++.h"
+#include <iostream>
+#include <map>
 using namespace std;
 
 map<int, int> mp;
@@ -28,7 +28,12 @@ int d(int n) {
 int u(int n) { return pow(n, d(n) / 2); }
 
 int main() {
-    SETUP;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     int n;
     cin >> n;

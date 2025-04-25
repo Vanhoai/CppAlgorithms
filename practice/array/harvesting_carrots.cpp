@@ -1,6 +1,29 @@
-#include "bits/stdc++.h"
-#include "bits/macros.h"
+#include <iostream>
 using namespace std;
+
+#define ms(s, n)      memset(s, n, sizeof(s))
+#define all(a)        a.begin(), a.end()
+#define sz(a)         int((a).size())
+#define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
+#define FORD(i, a, b) for (int i = (a); i >= b; --i)
+
+#define PB push_back
+#define MP make_pair
+#define F  first
+#define S  second
+
+typedef long long ll;
+typedef pair<int, int> pi;
+typedef vector<int> vi;
+typedef vector<pi> vii;
+typedef vector<vi> vvi;
+
+const int MOD = (int) 1e9 + 7;
+const int INF = (int) 1e9 + 1;
+const int DEG = (int) 10001;
+
+inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
+inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
 /**
  * Prefix Sum in Matrix 2D
@@ -37,17 +60,19 @@ const int maxn = 1001;
 int A[maxn][maxn], Q[maxn][maxn];
 
 void build() {
-    int n, m; cin >> n >> m;
-    REP(i, 1, n) REP(k, 1, m) cin >> A[i][k];
+    int n, m;
+    cin >> n >> m;
+    FOR(i, 1, n) FOR(k, 1, m) cin >> A[i][k];
 
     memset(Q, 0, sizeof(Q));
-    REP(i, 1, n) REP(k, 1, m) {
+    FOR(i, 1, n) FOR(k, 1, m) {
         Q[i][k] = Q[i - 1][k] + Q[i][k - 1] - Q[i - 1][k - 1] + A[i][k];
     }
 }
 
 void query() {
-    int q; cin >> q;
+    int q;
+    cin >> q;
     while (q--) {
         int x1, x2, y1, y2;
         cin >> x1 >> x2 >> y1 >> y2;
@@ -69,15 +94,3 @@ int main() {
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
