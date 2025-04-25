@@ -25,16 +25,27 @@ const int DEG = (int) 10001;
 inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
 inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
-const int maxn = 10000001;
-long long dp[maxn];
+const int MAXN = 1001;
+int n;
+int a[MAXN][MAXN];
 
-void init() {
-    dp[0] = 0;
-    dp[1] = 1;
-    FOR(i, 2, maxn) {
-        dp[i] = 1LL * i * dp[i - 1];
-        dp[i] %= MOD;
+void input() {
+    cin >> n;
+    ms(a, 0);
+    FOR(i, 1, n) FOR(j, 1, n) cin >> a[i][j];
+}
+
+void solve() {
+    FOR(j, 2, n) {
+        FOR(i, 1, n) {
+            int mx = max(a[i][j - 1], max(a[i - 1][j - 1], a[i + 1][j - 1]));
+            a[i][j] = mx + a[i][j];
+        }
     }
+
+    int mx = 0;
+    FOR(i, 1, n) mx = max(mx, a[i][n]);
+    cout << mx << endl;
 }
 
 int main() {
@@ -45,14 +56,11 @@ int main() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    init();
-
     int TC;
     cin >> TC;
     while (TC--) {
-        int n;
-        cin >> n;
-        cout << dp[n] << endl;
+        input();
+        solve();
     }
 
     return 0;
