@@ -25,6 +25,20 @@ const int DEG = (int) 10001;
 inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
 inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
+int lis_ii(vector<int> nums, int n) {
+    vector<int> dp;
+
+    for (int i = 0; i < nums.size(); i++) {
+        auto it = lower_bound(dp.begin(), dp.end(), nums[i]);
+        if (it == dp.end())
+            dp.push_back(nums[i]);
+        else
+            *it = nums[i];
+    }
+
+    return sz(dp);
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -38,6 +52,9 @@ int main() {
     while (TC--) {
         int n;
         cin >> n;
+        vector<int> nums(n);
+        FOR(i, 0, n - 1) cin >> nums[i];
+        cout << lis_ii(nums, n) << endl;
     }
 
     return 0;

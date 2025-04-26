@@ -1,2 +1,2 @@
 run:
-	g++ -std=c++11 -o main main.cpp && ./main
+	g++ -std=c++20 -o main main.cpp && ./main
