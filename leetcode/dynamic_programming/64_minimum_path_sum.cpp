@@ -25,21 +25,22 @@ const int DEG = (int) 10001;
 inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
 inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
-int findChampion(int n, vvi &edges) {
-    vector<int> indegree(n, 0);
-    for (auto edge : edges)
-        indegree[edge[1]]++;
+int minPathSum(vvi &grid) {
+    int n = grid.size();
+    int m = grid[0].size();
 
-    int champion = -1;
-    int count = 0;
-    for (int i = 0; i < n; ++i) {
-        if (indegree[i] == 0) {
-            champion = i;
-            count++;
+    vvi dp(n + 1, vi(m + 1, 1e9));
+    FOR(i, 1, n) {
+        FOR(j, 1, m) {
+            if (i == 1 && j == 1) {
+                dp[i][j] = grid[i - 1][j - 1];
+            } else {
+                dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i - 1][j - 1];
+            }
         }
     }
 
-    return count > 1 ? -1 : champion;
+    return dp[n][m];
 }
 
 int main() {
@@ -55,15 +56,9 @@ int main() {
     while (TC--) {
         int n, m;
         cin >> n >> m;
-        vvi edges(m);
-
-        FOR(i, 0, m - 1) {
-            vi edge(2);
-            cin >> edge[0] >> edge[1];
-            edges[i] = edge;
-        }
-
-        cout << findChampion(n, edges) << endl;
+        vvi grid(n, vi(m));
+        FOR(i, 0, n - 1) FOR(j, 0, m - 1) cin >> grid[i][j];
+        cout << minPathSum(grid) << endl;
     }
 
     return 0;
