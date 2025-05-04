@@ -31,24 +31,25 @@ void addEdge(TreeNode *&root, int u, int v, char c) {
     addEdge(root->right, u, v, c);
 }
 
-bool backtracking(TreeNode *root, int &sum, int target) {
-    if (!root)
-        return false;
+TreeNode *invertTree(TreeNode *root) {
+    if (root == nullptr)
+        return nullptr;
 
-    if (!root->left && !root->right && sum + root->val == target)
-        return true;
+    TreeNode *left = invertTree(root->left);
+    TreeNode *right = invertTree(root->right);
 
-    sum += root->val;
-    bool left = backtracking(root->left, sum, target);
-    bool right = backtracking(root->right, sum, target);
-    sum -= root->val;
-
-    return left || right;
+    root->left = right;
+    root->right = left;
+    return root;
 }
 
-bool hasPathSum(TreeNode *root, int targetSum) {
-    int sum = 0;
-    return backtracking(root, sum, targetSum);
+void inorderTraversal(TreeNode *root) {
+    if (!root)
+        return;
+
+    inorderTraversal(root->left);
+    cout << root->val << " ";
+    inorderTraversal(root->right);
 }
 
 int main() {
@@ -62,8 +63,8 @@ int main() {
     int TC;
     cin >> TC;
     while (TC--) {
-        int n, target;
-        cin >> n >> target;
+        int n;
+        cin >> n;
         TreeNode *root = nullptr;
         for (int i = 0; i < n; ++i) {
             int u, v;
@@ -75,7 +76,12 @@ int main() {
             addEdge(root, u, v, c);
         }
 
-        cout << (hasPathSum(root, target) ? "YES" : "NO") << endl;
+        inorderTraversal(root);
+        cout << endl;
+
+        TreeNode *invertedRoot = invertTree(root);
+        inorderTraversal(invertedRoot);
+        cout << endl;
     }
 
     return 0;

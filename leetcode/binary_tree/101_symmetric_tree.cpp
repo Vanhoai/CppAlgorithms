@@ -31,24 +31,23 @@ void addEdge(TreeNode *&root, int u, int v, char c) {
     addEdge(root->right, u, v, c);
 }
 
-bool backtracking(TreeNode *root, int &sum, int target) {
-    if (!root)
-        return false;
-
-    if (!root->left && !root->right && sum + root->val == target)
+bool isMirror(TreeNode *left, TreeNode *right) {
+    if (!left && !right)
         return true;
 
-    sum += root->val;
-    bool left = backtracking(root->left, sum, target);
-    bool right = backtracking(root->right, sum, target);
-    sum -= root->val;
+    if (!left || !right)
+        return false;
 
-    return left || right;
+    bool L = isMirror(left->left, right->right);
+    bool R = isMirror(left->right, right->left);
+    return (left->val == right->val) && L && R;
 }
 
-bool hasPathSum(TreeNode *root, int targetSum) {
-    int sum = 0;
-    return backtracking(root, sum, targetSum);
+bool isSymmetric(TreeNode *root) {
+    if (!root)
+        return true;
+
+    return isMirror(root->left, root->right);
 }
 
 int main() {
@@ -62,8 +61,8 @@ int main() {
     int TC;
     cin >> TC;
     while (TC--) {
-        int n, target;
-        cin >> n >> target;
+        int n;
+        cin >> n;
         TreeNode *root = nullptr;
         for (int i = 0; i < n; ++i) {
             int u, v;
@@ -75,7 +74,7 @@ int main() {
             addEdge(root, u, v, c);
         }
 
-        cout << (hasPathSum(root, target) ? "YES" : "NO") << endl;
+        cout << (isSymmetric(root) ? "YES" : "NO") << endl;
     }
 
     return 0;
