@@ -1,17 +1,12 @@
 #include <iostream>
 using namespace std;
 
-int f[100010];
+int rangeBitwiseAnd(int left, int right) {
+    long long ans = left;
+    for (int i = left + 1; i < right; i++)
+        ans &= i;
 
-int solve(int n) {
-    memset(f, 0, sizeof(f));
-
-    f[1] = 3;
-    f[2] = 8;
-    for (int i = 3; i <= n; i++)
-        f[i] = 2 * f[i - 1] + 2 * f[i - 2];
-
-    return f[n];
+    return ans;
 }
 
 int main() {
@@ -25,9 +20,9 @@ int main() {
     int TC;
     cin >> TC;
     while (TC--) {
-        int n;
-        cin >> n;
-        cout << solve(n) << endl;
+        int L, R;
+        cin >> L >> R;
+        cout << rangeBitwiseAnd(L, R) << endl;
     }
 
     return 0;
