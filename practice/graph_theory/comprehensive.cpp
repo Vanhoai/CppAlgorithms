@@ -115,6 +115,7 @@ public:
                 cout << v << " ";
             cout << endl;
         }
+        cout << endl;
     }
 
     void find_euler() {
@@ -129,7 +130,7 @@ public:
             cout << degree[i] << endl;
         }
 
-        cout << "Euler: ";
+        cout << endl << "Euler cycle = ";
         vector<int> paths = this->euler(4);
         FOR(i, 0, paths.size() - 1) cout << char(paths[i] + 'A');
         cout << endl;
@@ -143,10 +144,10 @@ public:
         path.push_back(start);
 
         if (hamilton(start, visited, path, 1)) {
-            cout << "Hamiltonian: ";
+            cout << "Hamiltonian = ";
             for (int v : path)
                 cout << char(v + 'A');
-            cout << endl;
+            cout << char(start + 'A') << endl;
 
             if (adj[path.back()].count({path[0], 0})) {
                 cout << "Also a Hamiltonian cycle" << endl;
@@ -376,6 +377,28 @@ Graph input() {
     return graph;
 }
 
+// 10 20
+// A B 2
+// A C 6
+// A E 1
+// A F 10
+// B C 9
+// B D 12
+// B I 4
+// C D 2
+// C J 20
+// D E 2
+// D G 1
+// E F 3
+// E G 6
+// F I 5
+// F H 8
+// G H 10
+// G J 3
+// H I 2
+// H J 1
+// I J 3
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -385,10 +408,10 @@ int main() {
     freopen("output.txt", "w", stdout);
 
     Graph graph = input();
-    // graph.in();
+    graph.in();
     // graph.find_euler();
-    // graph.find_hamilton();
-    // graph.dijkstra('E' - 'A');
-    graph.prim('E' - 'A', true);
+    graph.find_hamilton();
+    // graph.dijkstra('C' - 'A');
+    // graph.prim('A' - 'A', true);
     return 0;
 }

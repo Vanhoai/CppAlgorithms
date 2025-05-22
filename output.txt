@@ -1,19 +1,1 @@
-Step  A       B       C       D       E       F       G       H       Vertex  Edge    
-0     (IF,A)  (2,E)   (4,E)   (4,E)   *       (IF,F)  (3,E)   (10,E)  E       Empty   
-1     (IF,A)  (2,E)   (20,H)  (4,E)   -       (IF,F)  (6,H)   *       H       EH      
-2     (IF,A)  (2,E)   *       (4,E)   -       (IF,F)  (6,H)   -       C       HC      
-3     (IF,A)  (2,E)   -       (4,E)   -       (4,G)   *       -       G       HG      
-4     (3,D)   (6,D)   -       *       -       (5,D)   -       -       D       ED      
-5     (3,D)   *       -       -       -       (5,D)   -       -       B       DB      
-6     (3,D)   -       -       -       -       *       -       -       F       DF      
-7     *       -       -       -       -       -       -       -       A       DA      
 
-Spaning tree: 
-E H 10
-H C 20
-H G 6
-E D 4
-D B 6
-D F 5
-D A 3
-Sum: 54
