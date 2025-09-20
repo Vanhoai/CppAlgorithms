@@ -1,0 +1,3 @@
+# Common Flags
+set(CMAKE_CXX_FLAGS_DEBUG "-g -O3 -DDEBUG")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")

@@ -95,7 +95,7 @@ class Logistics {
 public:
     virtual Transport *createTransport() const = 0;
 
-    void planDelivery() {
+    void planDelivery() const {
         Transport *transport = createTransport();
         transport->deliver();
         std::cout << "Cost: " << transport->calculateCost() << std::endl;
@@ -124,11 +124,11 @@ int main() {
     freopen("output.txt", "w", stdout);
 
     std::cout << "Factory Method Design Pattern with C++" << std::endl;
-    Logistics *roadLogistics = new RoadLogistics();
+    const Logistics *roadLogistics = new RoadLogistics();
     roadLogistics->planDelivery();
     delete roadLogistics;
 
-    Logistics *seaLogistics = new SeaLogistics();
+    const Logistics *seaLogistics = new SeaLogistics();
     seaLogistics->planDelivery();
     delete seaLogistics;
 

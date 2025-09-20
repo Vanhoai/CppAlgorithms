@@ -33,7 +33,7 @@ public:
      * base class and must be overridden in any derived class. A class that contains at least one
      * pure virtual function is called an abstract class and cannot be instantiated directly.
      */
-    virtual void eat() = 0;
+    virtual void eat() const = 0;
 };
 
 class BeefNoodleSoup : public Food {
@@ -42,9 +42,9 @@ private:
     float beefWeight;
 
 public:
-    BeefNoodleSoup(float p, float bw) : price(p), beefWeight(bw) {}
+    BeefNoodleSoup(const float p, const float bw) : price(p), beefWeight(bw) {}
 
-    void eat() override {
+    void eat() const override {
         std::cout << "Eating beef noodle soup!" << std::endl;
         std::cout << "Price: $" << price << std::endl;
         std::cout << "Beef Weight: " << beefWeight << " grams" << std::endl;
@@ -59,7 +59,7 @@ int main() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
-    BeefNoodleSoup bns(5.99, 200.0);
+    const BeefNoodleSoup bns(5.99, 200.0);
     bns.eat();
 
     return 0;

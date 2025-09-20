@@ -1,0 +1,2 @@
+add_subdirectory(01_foundations)
+add_subdirectory(02_data_structure)
