@@ -56,9 +56,6 @@ int main() {
     std::cin.tie(nullptr);
     std::cout.tie(nullptr);
 
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-
     const BeefNoodleSoup bns(5.99, 200.0);
     bns.eat();
 

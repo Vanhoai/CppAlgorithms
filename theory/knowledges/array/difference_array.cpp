@@ -18,12 +18,12 @@ typedef vector<int> vi;
 typedef vector<pi> vii;
 typedef vector<vi> vvi;
 
-const int MOD = (int) 1e9 + 7;
-const int INF = (int) 1e9 + 1;
-const int DEG = (int) 10001;
+constexpr int MOD = static_cast<int>(1e9) + 7;
+constexpr int INF = static_cast<int>(1e9) + 1;
+constexpr int DEG = 10001;
 
-inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
-inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
+inline ll gcd(const ll a, const ll b) { return b == 0 ? a : gcd(b, a % b); }
+inline ll lcm(const ll a, const ll b) { return a / gcd(a, b) * b; }
 
 /**
  * Difference Array
