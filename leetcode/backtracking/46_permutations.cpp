@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <iostream>
 using namespace std;
 
@@ -60,8 +61,8 @@ int main() {
             cin >> nums[i];
 
         vector<vector<int>> perms = permute(nums);
-        for (int i = 0; i < perms.size(); i++) {
-            for (int j = 0; j < perms[i].size(); j++)
+        for (size_t i = 0; i < perms.size(); i++) {
+            for (size_t j = 0; j < perms[i].size(); j++)
                 cout << perms[i][j] << " ";
             cout << endl;
         }

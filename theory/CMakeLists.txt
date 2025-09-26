@@ -1,7 +1,7 @@
 project(theory LANGUAGES CXX)
 
 add_subdirectory(01_foundations)
-add_subdirectory(02_data_structure)
+add_subdirectory(02_data_structures)
 add_subdirectory(07_graph)
 
 message(STATUS "+--------------------- THEORY MODULE ------------------------+")

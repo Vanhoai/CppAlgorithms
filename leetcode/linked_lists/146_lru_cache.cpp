@@ -6,7 +6,7 @@ private:
         int key, value;
         Node *prev, *next;
 
-        Node(int k = 0, int v = 0)
+        explicit Node(int k = 0, int v = 0)
             : key(k), value(v), prev(nullptr), next(nullptr) {}
     };
 
@@ -24,7 +24,7 @@ private:
     }
 
     // Remove an existing node from the linked list
-    void removeNode(Node *node) {
+    static void removeNode(Node *node) {
         Node *prevNode = node->prev;
         Node *nextNode = node->next;
         prevNode->next = nextNode;
@@ -45,7 +45,7 @@ private:
     }
 
 public:
-    LRUCache(int capacity) {
+    explicit LRUCache(int capacity) {
         this->capacity = capacity;
         this->size = 0;
 

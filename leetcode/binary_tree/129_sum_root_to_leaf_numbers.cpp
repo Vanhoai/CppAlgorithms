@@ -100,7 +100,7 @@ int main() {
         }
 
         results.clear();
-        path = "";
+        path = 0;
         cout << sumNumbers(root) << endl;
     }
 

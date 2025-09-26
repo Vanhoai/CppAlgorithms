@@ -19,16 +19,12 @@ typedef vector<int> vi;
 typedef vector<pi> vii;
 typedef vector<vi> vvi;
 
-const int MOD = (int) 1e9 + 7;
-const int INF = (int) 1e9 + 1;
-const int DEG = (int) 10001;
-
 inline ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
 inline ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
 int solve(int s, int t) {
     queue<pi> q;
-    q.push(MP(s, 0));
+    q.emplace(s, 0);
 
     set<int> se;
     se.insert(s);
@@ -41,12 +37,12 @@ int solve(int s, int t) {
             return it.S;
 
         if (it.F > 1 && se.count(it.F - 1) == 0) {
-            q.push(MP(it.F - 1, it.S + 1));
+            q.emplace(it.F - 1, it.S + 1);
             se.insert(it.F - 1);
         }
 
         if (it.F < t && se.count(it.F * 2) == 0) {
-            q.push(MP(it.F * 2, it.S + 1));
+            q.emplace(it.F * 2, it.S + 1);
             se.insert(it.F * 2);
         }
     }
