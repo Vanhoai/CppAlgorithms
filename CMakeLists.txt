@@ -16,35 +16,22 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Add cmake modules path
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-# Options
-option(BUILD_TESTS "Build Testing Feature" ON)
-option(BUILD_BENCHMARKS "Build Benchmarks Feature" OFF)
-
-if (BUILD_TESTS)
-    enable_testing()
-    message(STATUS "Testing Feature are enabled.")
-else ()
-    message(STATUS "Testing Feature are disabled.")
-endif ()
-
-if (BUILD_BENCHMARKS)
-    message(STATUS "Benchmarks are enabled.")
-else ()
-    message(STATUS "Benchmarks are disabled.")
-endif ()
-
 # Include custom cmake files
 include(cmake/Dependencies.cmake)
 include(cmake/CompilerFlags.cmake)
+
+# CMake options for the project
+option(USE_OPENMP "Use OpenMP for multithreading" ON)
+option(BUILD_TESTING "Build Testing Features" ON)
+
+if (BUILD_TESTING)
+    enable_testing()
+endif ()
 
 # Add subdirectories
 add_subdirectory(libraries)
 add_subdirectory(theory)
 add_subdirectory(leetcode)
-
-# add_subdirectory(graph)
-# add_subdirectory(discrete_mathematics)
-# add_subdirectory(design-patterns)
 
 cmake_policy(SET CMP0054 NEW)
 cmake_policy(SET CMP0057 NEW)
@@ -52,3 +39,21 @@ cmake_policy(SET CMP0057 NEW)
 # Installation
 include(GNUInstallDirs)
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+# Information
+message(STATUS "+---------------------- CPP ALGORITHMS ----------------------+")
+message(STATUS "| Version: 1.0.0                                             |")
+message(STATUS "| CMake Version: ${CMAKE_VERSION}                                       |")
+message(STATUS "| C++ Standard: C++17                                        |")
+message(STATUS "| Build Type: Release                                        |")
+if (USE_OPENMP)
+    message(STATUS "| OpenMP: Enabled                                            |")
+else ()
+    message(STATUS "| OpenMP: Disabled                                           |")
+endif ()
+if (BUILD_TESTING)
+    message(STATUS "| Testing: Enabled                                           |")
+else ()
+    message(STATUS "| Testing: Disabled                                          |")
+endif ()
+message(STATUS "+------------------------------------------------------------+")

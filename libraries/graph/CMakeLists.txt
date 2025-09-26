@@ -1,10 +1,10 @@
-project(core LANGUAGES CXX)
+project(graph LANGUAGES CXX)
 
-file(GLOB_RECURSE CORE_HEADERS "include/core/*.hpp")
-file(GLOB_RECURSE CORE_SOURCES "src/*.cpp")
+file(GLOB_RECURSE GRAPH_HEADERS "include/graph/*.hpp")
+file(GLOB_RECURSE GRAPH_SOURCES "src/*.cpp")
 
-# Create core library
-add_library(${PROJECT_NAME} ${CORE_HEADERS} ${CORE_SOURCES})
+# Create graph library
+add_library(${PROJECT_NAME} ${GRAPH_HEADERS} ${GRAPH_SOURCES})
 
 # Set include directories
 target_include_directories(${PROJECT_NAME}
@@ -14,7 +14,7 @@ target_include_directories(${PROJECT_NAME}
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-# Link dependencies for use in the core library
+# Link dependencies for use in the graph library
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
     PRIVATE
@@ -24,7 +24,7 @@ target_link_libraries(${PROJECT_NAME}
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
 # Add target definitions
-target_compile_definitions(${PROJECT_NAME} PRIVATE CORE_EXPORTS=1)
+target_compile_definitions(${PROJECT_NAME} PRIVATE GRAPH_EXPORTS=1)
 
 # Set properties
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -38,7 +38,7 @@ if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     include(GNUInstallDirs)
 
     install(TARGETS ${PROJECT_NAME}
-        EXPORT CoreTargets
+        EXPORT GraphTargets
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}

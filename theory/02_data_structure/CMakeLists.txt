@@ -1,30 +1,15 @@
-project(data_structure LANGUAGES CXX)
-
-# Collect source files
-file(GLOB_RECURSE DATA_STRUCTURE_HEADERS "include/data_structure/*.hpp")
-file(GLOB_RECURSE DATA_STRUCTURE_SOURCES "src/*.cpp")
-
-# Create data_structure library
-add_library(${PROJECT_NAME} ${DATA_STRUCTURE_HEADERS} ${DATA_STRUCTURE_SOURCES})
-
-# Set include directories
-target_include_directories(${PROJECT_NAME}
-    PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+file(GLOB_RECURSE DATA_STRUCTURE_SOURCES 
+    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+    "${CMAKE_CURRENT_SOURCE_DIR}/**/*.cpp"
 )
 
-# Link dependencies
-target_link_libraries(${PROJECT_NAME}
-    PRIVATE
-    core
-)
+foreach (sourcefiles ${DATA_STRUCTURE_SOURCES})
+    string(REPLACE "/" "_" filename ${sourcefiles})
+    string(REPLACE ".cpp" "" filename ${filename})
+    
+    add_executable(${filename} ${sourcefiles})
+    set_target_properties(${filename} PROPERTIES LINKER_LANGUAGE CXX)
+    target_link_libraries(${filename} PRIVATE core)
+    install(TARGETS ${filename} DESTINATION "bin/theory/02_data_structure")
 
-# Add tests subdirectory
-if (BUILD_TESTS)
-    add_subdirectory(tests)
-    message(STATUS "Building tests for data_structure module.")
-else ()
-    message(STATUS "Skipping tests for data_structure module.")
-endif ()
+endforeach (sourcefiles ${DATA_STRUCTURE_SOURCES})
