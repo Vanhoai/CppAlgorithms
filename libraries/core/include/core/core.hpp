@@ -51,7 +51,18 @@ inline void io() {
 inline ll gcd(const ll a, const ll b) { return b == 0 ? a : gcd(b, a % b); }
 inline ll lcm(const ll a, const ll b) { return a / gcd(a, b) * b; }
 
-int sum_vector(const std::vector<int> &nums);
+template <typename T> struct Node {
+    T value;
+    Node *next;
+    explicit Node(const T value) : value(value), next(nullptr) {}
+};
+
+Node<int> *makeNode(const int value);
+
+bool isEmpty(Node<int> *head);
+void addToHead(Node<int> *&head, const int value);
+void addToTail(Node<int> *&head, const int value);
+void printLinkedList(Node<int> *head);
 
 }   // namespace core
 

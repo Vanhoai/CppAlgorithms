@@ -1,4 +1,4 @@
-DESTINATION=theory/02_data_structures/arrays_difference_array
+DESTINATION=theory/02_data_structures/linked_list_intersection
 
 run-destination:
 	cd build && ./$(DESTINATION)

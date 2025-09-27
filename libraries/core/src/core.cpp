@@ -11,12 +11,48 @@
 
 namespace core {
 
-int sum_vector(const std::vector<int> &nums) {
-    int sum = 0;
-    for (size_t i = 0; i < nums.size(); ++i)
-        sum += nums[i];
+Node<int> *makeNode(const int value) { return new Node<int>(value); }
 
-    return sum;
+bool isEmpty(Node<int> *head) { return head == nullptr; }
+
+void addToHead(Node<int> *&head, const int value) {
+    Node<int> *newNode = makeNode(value);
+
+    if (isEmpty(head)) {
+        head = newNode;
+        return;
+    }
+
+    newNode->next = head;
+    head = newNode;
+}
+
+void addToTail(Node<int> *&head, const int value) {
+    Node<int> *newNode = makeNode(value);
+
+    if (isEmpty(head)) {
+        head = newNode;
+        return;
+    }
+
+    Node<int> *current = head;
+    while (current->next != nullptr)
+        current = current->next;
+
+    current->next = newNode;
+}
+
+void printLinkedList(Node<int> *head) {
+    Node<int> *current = head;
+
+    while (current != nullptr) {
+        std::cout << current->value;
+        if (current->next != nullptr)
+            std::cout << " -> ";
+        current = current->next;
+    }
+
+    std::cout << "\n";
 }
 
 }   // namespace core

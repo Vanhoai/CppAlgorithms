@@ -60,6 +60,8 @@
         "format": "cpp",
         "ostream": "cpp",
         "regex": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "iostream": "cpp",
+        "__config": "cpp"
     }
 }
