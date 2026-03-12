@@ -2,9 +2,10 @@
 // File        : core.hpp
 // Author      : Hinsun
 // Date        : 2025-09-23
-// Copyright   : (c) 2025 Tran Van Hoai
-// License     : MIT
 //
+
+// This file will be included in all other files in the project. It contains
+// common definitions and utilities that are used throughout the project.
 
 #ifndef CORE_HPP
 #define CORE_HPP
@@ -15,6 +16,8 @@
 #include <vector>
 
 namespace core {
+
+// Define some common macros and type aliases for convenience
 
 #define FOR(i, a, b)  for (int i = (a); i <= (b); ++i)
 #define FORD(i, a, b) for (int i = (a); i >= b; --i)
@@ -34,35 +37,15 @@ constexpr int MOD = static_cast<int>(1e9) + 7;
 constexpr int INF = static_cast<int>(1e9) + 1;
 constexpr int DEG = 10001;
 
-// Please change the input and output path according to your project structure
-const std::string INPUT_PATH =
-    "/Users/hinsun/Workspace/Algorithms/CppAlgorithms/input.txt";
-const std::string OUTPUT_PATH =
-    "/Users/hinsun/Workspace/Algorithms/CppAlgorithms/output.txt";
-
-inline void io() {
+// Define some common utility functions
+inline void fast_io() {
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
     std::cout.tie(nullptr);
-    freopen(core::INPUT_PATH.c_str(), "r", stdin);
-    freopen(core::OUTPUT_PATH.c_str(), "w", stdout);
 }
 
 inline ll gcd(const ll a, const ll b) { return b == 0 ? a : gcd(b, a % b); }
 inline ll lcm(const ll a, const ll b) { return a / gcd(a, b) * b; }
-
-template <typename T> struct Node {
-    T value;
-    Node *next;
-    explicit Node(const T value) : value(value), next(nullptr) {}
-};
-
-Node<int> *makeNode(const int value);
-
-bool isEmpty(Node<int> *head);
-void addToHead(Node<int> *&head, const int value);
-void addToTail(Node<int> *&head, const int value);
-void printLinkedList(Node<int> *head);
 
 }   // namespace core
 

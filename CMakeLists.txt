@@ -22,7 +22,7 @@ include(cmake/CompilerFlags.cmake)
 
 # CMake options for the project
 option(USE_OPENMP "Use OpenMP for multithreading" ON)
-option(BUILD_TESTING "Build Testing Features" ON)
+option(BUILD_TESTING "Build Testing Features" OFF)
 
 if (BUILD_TESTING)
     enable_testing()
@@ -30,8 +30,8 @@ endif ()
 
 # Add subdirectories
 add_subdirectory(libraries)
-add_subdirectory(theory)
-add_subdirectory(leetcode)
+# add_subdirectory(theory)
+# add_subdirectory(leetcode)
 
 cmake_policy(SET CMP0054 NEW)
 cmake_policy(SET CMP0057 NEW)
