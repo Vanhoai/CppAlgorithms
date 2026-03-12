@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 4.0)
-project(CppAlgorithms
-        LANGUAGES CXX
-        VERSION 1.0.0
-        DESCRIPTION "Set of algorithms implemented in C++."
+project(CPPFoundations
+    LANGUAGES CXX
+    VERSION 1.0.0
+    DESCRIPTION "Set of algorithms implemented in C++."
 )
 
 # C++ standard
@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Define library aliases as variables
-# set(CORE_LIBRARY "CppAlgorithms:core")
+# set(CORE_LIBRARY "CPPFoundations:core")
 
 # Add cmake modules path
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
